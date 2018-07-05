@@ -1,0 +1,15 @@
+.filter-container {
+  background: #FFF;
+  border-top: 1px solid #AAA;
+  padding: 0.3rem;
+  height: 50px;
+
+  .active-filter {
+    color: #FFF;
+    background-color: #4D4DFF;
+  }
+
+  a.active-filter:hover {
+    color: #EEE;
+  }
+}

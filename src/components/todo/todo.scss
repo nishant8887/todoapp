@@ -1,0 +1,51 @@
+.todo-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  .todo-text {
+    margin: 0;
+    color: #333;
+  }
+
+  .todo-text-container {
+    width: 100%;
+  }
+
+  .todo-done {
+    font-size: 1.2em;
+    margin-right: 1rem;
+  }
+
+  .todo-close {
+    margin-left: 1rem;
+  }
+
+  .todo-input {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    color: #495057;
+    background-color: #FFF;
+    border: none;
+  }
+
+  .todo-input:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .completed-check {
+    color: #0A0;
+  }
+
+  .not-completed-check {
+    color: #888;
+  }
+  .completed-text {
+    text-decoration: line-through;
+    color: #888;
+  }
+}

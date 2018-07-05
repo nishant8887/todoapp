@@ -1,0 +1,26 @@
+.todo-board-container {
+  border: none;
+  box-shadow: none;
+  outline: none;
+
+  .todo-add-btn {
+    float: right;
+  }
+
+  .todo-icon {
+    font-size: 1.35em;
+    margin-left: 0.3rem;
+    vertical-align: middle;
+  }
+
+  .todo-title {
+    border: none;
+    border-radius: 0;
+    color: #FFF;
+    background: linear-gradient(to right, #944DFF , #4D4DFF);
+  }
+
+  .list-container {
+    padding-bottom: 50px;
+  }
+}
