@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import TodoBoard from "../models/todo-board";
 import {FilterElement} from "../components/filter/filter";
-import {changeFilter} from "../actions/action-creators";
+import {changeFilter} from "../reducers/filter-reducer";
 
 const mapStateToProps = (state: TodoBoard) => (
   {

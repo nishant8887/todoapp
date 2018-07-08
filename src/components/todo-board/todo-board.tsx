@@ -9,7 +9,7 @@ import * as fontAwesome from 'font-awesome/css/font-awesome.min.css';
 export interface TodoBoardProps extends TodoBoard {
   onAdd(): void;
   onEdit(id: number): void;
-  onModify(text: string, id: number): void;
+  onModify(arg: {text: string; id: number}): void;
   onDone(id: number): void;
   onRemove(id: number): void;
 }
@@ -30,7 +30,7 @@ export function TodoBoardElement(props: TodoBoardProps) {
             completed={todo.completed}
             editable={todo.editable}
             onEdit={() => props.onEdit(todo.id)}
-            onModify={(text) => props.onModify(text, todo.id)}
+            onModify={(text) => props.onModify({text: text, id: todo.id})}
             onDone={() => props.onDone(todo.id)}
             onRemove={() => props.onRemove(todo.id)}
           />

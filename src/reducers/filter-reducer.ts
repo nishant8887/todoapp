@@ -1,13 +1,14 @@
-import {Action} from 'redux';
-import ActionType from '../actions/action-types';
+import {actionCreatorFactory} from "typescript-fsa";
 import FilterType from "../models/filter";
-import {ChangeFilter} from "../actions/actions";
+import {reducerWithInitialState} from "typescript-fsa-reducers";
 
-export function filter(state: FilterType = FilterType.All, action: Action) {
-  switch (action.type) {
-    case ActionType.CHANGE_FILTER:
-      return (<ChangeFilter> action).payload.filter;
-    default:
-      return state;
-  }
-}
+const actionCreator = actionCreatorFactory();
+
+const CHANGE_FILTER = 'todo_app/filter-reducer/CHANGE_FILTER';
+
+export const changeFilter = actionCreator<FilterType>(CHANGE_FILTER);
+
+const reducer = reducerWithInitialState(FilterType.All)
+  .case(changeFilter, (state, filter) => (filter));
+
+export default reducer;

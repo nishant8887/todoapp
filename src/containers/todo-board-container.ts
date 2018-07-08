@@ -1,9 +1,9 @@
 import {connect} from 'react-redux'
 import {TodoBoardElement} from "../components/todo-board/todo-board";
-import {addTodo, enableEditTodo, modifyTodo, removeTodo, toggleTodo} from "../actions/action-creators";
 import TodoBoard from "../models/todo-board";
 import FilterType from "../models/filter";
 import Todo from "../models/todo";
+import {addTodo, enableEditTodo, modifyTodo, removeTodo, toggleTodo} from "../reducers/tasks-reducer";
 
 function visibleTasks(filter: FilterType, tasks: Todo[]): Todo[] {
   switch (filter) {

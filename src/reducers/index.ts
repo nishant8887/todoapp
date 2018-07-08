@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import {tasks} from './tasks-reducer';
-import {filter} from "./filter-reducer";
+import tasks from './tasks-reducer';
+import filter from "./filter-reducer";
 
 const appReducer = combineReducers({
   filter,
