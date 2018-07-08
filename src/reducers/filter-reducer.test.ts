@@ -1,5 +1,4 @@
-import {filter} from './filter-reducer';
-import {changeFilter} from "../actions/action-creators";
+import filter, {changeFilter} from './filter-reducer';
 import FilterType from "../models/filter";
 
 test('filter-reducer-basic', () => {

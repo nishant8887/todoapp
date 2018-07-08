@@ -1,5 +1,4 @@
-import {tasks} from "./tasks-reducer";
-import {addTodo, enableEditTodo, modifyTodo, removeTodo, toggleTodo} from "../actions/action-creators";
+import tasks, {addTodo, enableEditTodo, modifyTodo, removeTodo, toggleTodo} from "./tasks-reducer";
 
 test('tasks-reducer-add-todo', () => {
   expect(tasks([], addTodo())).toEqual([{id: 0, text: 'New Todo #1', completed: false, editable: false}]);
@@ -22,5 +21,5 @@ test('tasks-reducer-enable-edit', () => {
 });
 
 test('tasks-reducer-modify-todo', () => {
-  expect(tasks([{id: 0, text: 'New Todo', completed: false, editable: false}], modifyTodo('Test', 0))).toEqual([{id: 0, text: 'Test', completed: false, editable: false}]);
+  expect(tasks([{id: 0, text: 'New Todo', completed: false, editable: false}], modifyTodo({text: 'Test', id: 0}))).toEqual([{id: 0, text: 'Test', completed: false, editable: false}]);
 });
