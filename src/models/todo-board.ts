@@ -2,7 +2,8 @@ import Todo from './todo';
 import FilterType from "./filter";
 
 interface TodoBoard {
-  filter: FilterType
+  loading: boolean;
+  filter: FilterType;
   tasks: Todo[];
 }
 

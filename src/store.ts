@@ -1,10 +1,16 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import appReducer from './reducers/index'
+import {createEpicMiddleware} from 'redux-observable';
+import appEpic from "./epics/index";
 
-const store = createStore(appReducer);
+const epicMiddleware = createEpicMiddleware();
 
-// store.subscribe(() => {
-//   console.log(store.getState());
-// });
+const store = createStore(appReducer, applyMiddleware(epicMiddleware));
+
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
+epicMiddleware.run(appEpic);
 
 export default store;

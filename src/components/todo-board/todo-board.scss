@@ -23,4 +23,17 @@
   .list-container {
     padding-bottom: 50px;
   }
+
+  .loader-container {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: -45px;
+  }
+
+  .loader-image {
+    width: 80px;
+    height: 90px;
+  }
 }

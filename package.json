@@ -42,6 +42,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
+    "redux-observable": "^1.0.0",
     "typescript-fsa": "^3.0.0-beta-2",
     "typescript-fsa-reducers": "^0.4.5"
   }

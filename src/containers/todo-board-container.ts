@@ -3,7 +3,7 @@ import {TodoBoardElement} from "../components/todo-board/todo-board";
 import TodoBoard from "../models/todo-board";
 import FilterType from "../models/filter";
 import Todo from "../models/todo";
-import {addTodo, enableEditTodo, modifyTodo, removeTodo, toggleTodo} from "../reducers/tasks-reducer";
+import {addTodo, enableEditTodo, fetchTodo, modifyTodo, removeTodo, toggleTodo} from "../reducers/tasks-reducer";
 
 function visibleTasks(filter: FilterType, tasks: Todo[]): Todo[] {
   switch (filter) {
@@ -25,11 +25,12 @@ const mapStateToProps = (state: TodoBoard) => (
 );
 
 const mapDispatchToProps = {
-  onAdd: addTodo,
+  onAdd: addTodo.started,
   onEdit: enableEditTodo,
-  onDone: toggleTodo,
-  onModify: modifyTodo,
-  onRemove: removeTodo
+  onDone: toggleTodo.started,
+  onModify: modifyTodo.started,
+  onRemove: removeTodo.started,
+  onLoad: fetchTodo.started
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoBoardElement)
