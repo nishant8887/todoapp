@@ -19,7 +19,7 @@ export const removeTodo = actionCreator.async<number, void>(REMOVE_TODO);
 export const enableEditTodo = actionCreator<number>(ENABLE_EDIT_TODO);
 
 const reducer = reducerWithInitialState([])
-  .case(fetchTodo.done, (state, arg) => ([...arg.result]))
+  .case(fetchTodo.done, (state, arg) => (arg.result.map((todo) => ({...todo, editable: false}))))
   .case(addTodo.done, (state, arg) => {
     return [...state, {id: arg.result.id, text: arg.result.text, completed: false, editable: false}];
   })

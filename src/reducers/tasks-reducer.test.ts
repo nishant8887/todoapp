@@ -1,4 +1,4 @@
-import tasks, {addTodo, enableEditTodo, modifyTodo, removeTodo, toggleTodo} from "./tasks-reducer";
+import tasks, {addTodo, enableEditTodo, fetchTodo, modifyTodo, removeTodo, toggleTodo} from "./tasks-reducer";
 
 test('tasks-reducer-add-todo', () => {
   expect(tasks([], addTodo.done({result: {id: 0, text: 'New Todo #1', completed: false}}))).toEqual([{id: 0, text: 'New Todo #1', completed: false, editable: false}]);
@@ -22,4 +22,12 @@ test('tasks-reducer-enable-edit', () => {
 
 test('tasks-reducer-modify-todo', () => {
   expect(tasks([{id: 0, text: 'New Todo', completed: false, editable: false}], modifyTodo.done({params: {id: 0}, result: {text: 'Test'}}))).toEqual([{id: 0, text: 'Test', completed: false, editable: false}]);
+});
+
+test('tasks-reducer-fetch-todo', () => {
+  expect(tasks([], fetchTodo.done({result: [{id: 0, text: 'New Todo #0', completed: false}]}))).toEqual([{id: 0, text: 'New Todo #0', completed: false, editable: false}]);
+});
+
+test('tasks-reducer-modify-todo-failed', () => {
+  expect(tasks([{id: 0, text: 'New Todo', completed: false, editable: true}], modifyTodo.failed({params: {id: 0, text: 'Test'}}))).toEqual([{id: 0, text: 'New Todo', completed: false, editable: false}]);
 });
