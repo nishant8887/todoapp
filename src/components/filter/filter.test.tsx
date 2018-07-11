@@ -1,14 +1,9 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
 import {FilterElement, FilterProps} from './filter';
+import {render, fireEvent} from 'react-testing-library';
 import FilterType from "../../models/filter";
 
-test('filter renders three filter types', () => {
-  const wrapper = shallow(<FilterElement />);
-  expect(wrapper.find('a')).toHaveLength(3);
-});
-
-test('filter selection with click', () => {
+test('filter-component-selection', () => {
   let props: FilterProps = {
     filter: FilterType.All,
     onSelect(filter: FilterType) {
@@ -16,23 +11,14 @@ test('filter selection with click', () => {
     }
   };
 
-  const wrapper = shallow(<FilterElement {...props} />);
+  const {getByText} = render(<FilterElement {...props} />);
 
-  wrapper.find('a').at(1).simulate('click', {
-    preventDefault: () => {
-    }
-  });
+  fireEvent.click(getByText('Pending'));
   expect(props.filter).toEqual(FilterType.Pending);
 
-  wrapper.find('a').at(2).simulate('click', {
-    preventDefault: () => {
-    }
-  });
+  fireEvent.click(getByText('Completed'));
   expect(props.filter).toEqual(FilterType.Completed);
 
-  wrapper.find('a').at(0).simulate('click', {
-    preventDefault: () => {
-    }
-  });
+  fireEvent.click(getByText('All'));
   expect(props.filter).toEqual(FilterType.All);
 });

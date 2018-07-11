@@ -16,18 +16,18 @@ export function TodoElement(props: TodoProps) {
     <li className={`${bootstrap.listGroupItem}`}>
       <div className={style.todoContainer}>
         <div className={style.todoDone}>
-          <a onClick={props.onDone}>{props.completed ? <i className={`${fontAwesome.fa} ${fontAwesome.faCheckCircle} ${style.completedCheck}`}></i>: <i className={`${fontAwesome.fa} ${fontAwesome.faCircleThin} ${style.notCompletedCheck}`}></i>}</a>
+          <a onClick={props.onDone} data-testid="todo-done">{props.completed ? <i className={`${fontAwesome.fa} ${fontAwesome.faCheckCircle} ${style.completedCheck}`}></i>: <i className={`${fontAwesome.fa} ${fontAwesome.faCircleThin} ${style.notCompletedCheck}`}></i>}</a>
         </div>
-        <div className={style.todoTextContainer} onDoubleClick={props.onEdit}>
+        <div className={style.todoTextContainer} onDoubleClick={props.onEdit} data-testid="todo-text-container">
           {!props.editable &&
             <p className={`${style.todoText} ${props.completed? style.completedText : ''}`}>{props.text}</p>
           }
           {props.editable &&
-            <input autoFocus className={`${style.todoInput}`} type="text" defaultValue={props.text} onBlur={(e) => props.onModify(e.currentTarget.value)} onKeyPress={(e) => { if (e.key == 'Enter') props.onModify(e.currentTarget.value); }} />
+            <input data-testid="todo-edit-input" autoFocus className={`${style.todoInput}`} type="text" defaultValue={props.text} onBlur={(e) => props.onModify(e.currentTarget.value)} onKeyPress={(e) => { if (e.key == 'Enter') props.onModify(e.currentTarget.value); }} />
           }
         </div>
         <div className={style.todoClose}>
-          <a onClick={props.onRemove} className={bootstrap.close}>
+          <a onClick={props.onRemove} className={bootstrap.close} data-testid="remove-todo-btn">
             <span aria-hidden="true">&times;</span>
           </a>
         </div>

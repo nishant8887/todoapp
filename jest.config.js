@@ -16,8 +16,6 @@ module.exports = {
     "json",
     "node"
   ],
-  "snapshotSerializers": ["enzyme-to-json/serializer"],
-  "setupTestFrameworkScriptFile": path.resolve(__dirname, "src/setup-enzyme.ts"),
   "moduleNameMapper": {
     "\\.(scss)$": path.resolve(__dirname, "node_modules/jest-css-modules"),
     "\\.(css)$": path.resolve(__dirname, "node_modules/jest-css-modules")
